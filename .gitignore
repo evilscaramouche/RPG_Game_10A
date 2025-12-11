@@ -13,3 +13,6 @@ RPG_Game/RPG_Game/obj/Debug/net8.0/RPG_Game.AssemblyInfoInputs.cache
 RPG_Game/RPG_Game/obj/Debug/net8.0/RPG_Game.AssemblyInfo.cs
 RPG_Game/.vs/RPG_Game/v17/DocumentLayout.json
 RPG_Game/.vs/RPG_Game/v17/.suo
+*.db
+RPG_Game/.vs/RPG_Game/CopilotIndices/17.14.1147.5054/CodeChunks.db
+/RPG_Game/.vs
