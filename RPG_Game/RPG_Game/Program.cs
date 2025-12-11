@@ -35,15 +35,39 @@
         }
 
         public IReadOnlyList<Item> Inventory => _inventory.AsReadOnly();
-        public Player(string name, int health, int strength) : base(name, health, strength)
+        public Player(string name) : base(name, 100, 10)
         {
+
+            _maxMana = 50;
+            _mana = _maxMana;
+            _level = 1;
+            _experience = 0;
+            _inventory = new List<Item>();
         }
-        
-        public int Mana => throw new NotImplementedException();
 
         public override void Attack(Character target)
         {
-            throw new NotImplementedException();
+            var rand = new Random();
+            var baseDamage = Strength;
+
+            if (_equatableWeapon != null && _equatableWeapon is Weapon weapon)
+            {
+                baseDamage += weapon.Damage;
+            }
+
+            var isCritical = rand.NextDouble() < 20;
+            var damage = isCritical ? baseDamage * 2 : baseDamage;
+
+            if (isCritical)
+            {
+                Console.WriteLine($"Critical Hit! {Name} give {damage} to {target.Name}!");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} attacks {target.Name} for {damage} damage.");
+            }
+
+            target.TakeDamage(damage);
         }
 
         public void CastSpell(Character target)
